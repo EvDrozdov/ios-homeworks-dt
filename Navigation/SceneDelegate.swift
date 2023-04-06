@@ -46,6 +46,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     let navi = TB.viewControllers?.last as? UINavigationController,
            let VC = navi.viewControllers.first as? LogInViewController {
             VC.loginDelegate = LoginInspector()
+            
+            // Создаем рандомную ссылку для обращения к API
+                    let randomValueForApi = AppConfiguration.allCases.randomElement()!
+                    print("Ссылка, которую сформировали рандомно - ", randomValueForApi.rawValue)
+
+                    // Передаем ссылку в сервис для обращения к API
+                    NetworkService.request(for: randomValueForApi)
         }
     
 
