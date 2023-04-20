@@ -33,13 +33,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarController = UITabBarController()
       
         
-        tabBarController.viewControllers?[0].tabBarItem.title = "Feed"
-        tabBarController.viewControllers?[1].tabBarItem.title = "Profile"
-        tabBarController.viewControllers?[2].tabBarItem.title = "Info"
+        userFeedController.tabBarItem = UITabBarItem(title: "Feed",
+                                                 image: UIImage(systemName: "list.bullet.rectangle.portrait"),
+                                                 selectedImage: UIImage(systemName: "list.bullet.rectangle.portrait.fill"))
         
-        tabBarController.tabBar.items?[0].image = UIImage(systemName: "list.bullet.rectangle.portrait.fill")
-        tabBarController.tabBar.items?[1].image = UIImage(systemName: "brain.head.profile")
-        tabBarController.tabBar.items?[2].image = UIImage(systemName: "info.circle")
+        loginViewController.tabBarItem = UITabBarItem(title: "Profile",
+                                                 image: UIImage(systemName: "brain.head.profile"),
+                                                 selectedImage: UIImage(systemName: "brain.head.profile.fill"))
+        
+        infoViewController.tabBarItem = UITabBarItem(title: "Info",
+                                                 image: UIImage(systemName: "info.circle"),
+                                                 selectedImage: UIImage(systemName: "info.circle.fill"))
+        
+        
+        
         
         tabBarController.tabBar.backgroundColor = UIColor.white
         
