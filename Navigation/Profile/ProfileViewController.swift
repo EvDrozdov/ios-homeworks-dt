@@ -7,6 +7,9 @@
 
 
 import UIKit
+import FirebaseAuth
+
+var handle: AuthStateDidChangeListenerHandle?
 
 
 
@@ -71,6 +74,25 @@ class ProfileViewController: UIViewController{
         setupView()
         setupGestures()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Начинаем слушать авторизацию пользователя
+        // если ее нет, то выкинем алерт
+        handle = Auth.auth().addStateDidChangeListener { auth, user in
+            if user == nil {
+                let alarm = UIAlertController(title: "Пользователь не авторизован", message: "Перейдите на вкладку Профиль и пройдите авторизацию", preferredStyle: .alert)
+                let alarmAction = UIAlertAction(title: "Ок", style: .default)
+                alarm.addAction(alarmAction)
+                self.present(alarm, animated: true)
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        Auth.auth().removeStateDidChangeListener(handle!)
+    }
+    
+    
     private func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Profile"

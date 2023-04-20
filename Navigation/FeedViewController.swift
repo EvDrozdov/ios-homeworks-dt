@@ -70,7 +70,7 @@ class FeedViewController: UIViewController {
         present(alarm, animated: true)
     }
     
-   private lazy var checkButton = CustomButton(title: "Chek", titleColor: .black, backgroundButtonColor: .darkGray, clipsToBoundsOfButton: true, cornerRadius: 20, autoLayout: false)
+   private lazy var checkButton = CustomButton(title: "Check", titleColor: .black, backgroundButtonColor: .darkGray, clipsToBoundsOfButton: true, cornerRadius: 20, autoLayout: false)
 //    {
 ////        guard let checkedSecret = self.checkTextField.text else { return }
 ////

@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+
 
 class LogInViewController: UIViewController {
     
@@ -16,10 +19,14 @@ class LogInViewController: UIViewController {
                                        qos: .userInteractive,
                                        attributes: [.concurrent])
     
-    private lazy var selectPasswordButton: CustomButton = {
-        let buttom = CustomButton(title: "Подобрать пароль", titleColor: .white, backgroundButtonColor: .blue, clipsToBoundsOfButton: true, cornerRadius: 10, autoLayout: false)
-        buttom.addTargetForButton = { self.makePassword() }
+    // Чтобы упростить себе жизнь кнопка брутфорса с прошлых ДЗ переделана на Регистрация
+    // весь код брутфорса удален
+    
+    private lazy var registerNewUserButton: CustomButton = {
+        let buttom = CustomButton(title: "Регистрация", titleColor: .white, backgroundButtonColor: .blue, clipsToBoundsOfButton: true, cornerRadius: 10, autoLayout: false)
+        buttom.addTargetForButton = { self.registerNewUser() }
         return buttom
+        
     }()
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
@@ -51,7 +58,7 @@ class LogInViewController: UIViewController {
         let stackView = UIStackView()
         stackView.addArrangedSubview(loginTextField)
         stackView.addArrangedSubview(passwordTextField)
-        stackView.addArrangedSubview(selectPasswordButton)
+        stackView.addArrangedSubview(registerNewUserButton)
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
         stackView.layer.borderWidth = 0.5
@@ -89,18 +96,19 @@ class LogInViewController: UIViewController {
         
     }()
     
-    private lazy var loginButton: UIButton = {
-        let button = UIButton()
-        button.clipsToBounds = true
-        button.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
-        button.setTitle("Log In", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(moveToProfile), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var loginButton: CustomButton = {
+        let button = CustomButton (title: "Log In",
+                                   titleColor: .white,
+                                   backgroundButtonColor: UIColor(named: "CustomColor")!,
+                                   clipsToBoundsOfButton: true,
+                                   cornerRadius: 10,
+                                   autoLayout: false)
+        button.tag = 1005
+        button.addTargetForButton = { self.goToProfileViewController(sender: button) }
         return button
         
-    }()
+        
+    }() 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,21 +132,77 @@ class LogInViewController: UIViewController {
         
     }
     
-    @objc func moveToProfile() {
-        
-        guard let checkResults = LogInViewController.loginFactoryDelegate?.makeLoginInspector().check(login: loginTextField.text!, pass: passwordTextField.text!) else {
-            return }
-        
-        if checkResults {
-            guard let user = Checker.shared.user else { return }
-            let profileVC = ProfileViewController()
-            profileVC.newUser = user
-            navigationController?.pushViewController(profileVC, animated: true)
-        }
-        else {
-            let alert = UIAlertController(title: "Unknown login", message: "Please, enter correct user login", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            self.present(alert, animated: true)
+    @objc private func goToProfileViewController(sender: UIButton) {
+        if sender.tag == 1005 {
+            setupActivityIndicator()
+            hideKeyboard()
+            if ( (loginTextField.text != "") && (passwordTextField.text != "") ) {
+                
+                let checkerService = CheckerService()
+                checkerService.checkCredentials(for: loginTextField.text!, and: passwordTextField.text!) { result in
+                    switch result {
+                    case .success(_):
+                        self.deSetupActivityIndicator()
+                        let goToProfileViewController = ProfileViewController()
+                        goToProfileViewController.modalPresentationStyle = .currentContext
+                        self.navigationController?.pushViewController(goToProfileViewController, animated: true)
+                        
+                    case .failure(let error):
+                        self.deSetupActivityIndicator()
+                        let alarm = UIAlertController(title: "Ошибка при входе", message: error.localizedDescription, preferredStyle: .alert)
+                        let alarmAction = UIAlertAction(title: "Ok", style: .default)
+                        alarm.addAction(alarmAction)
+                        self.present(alarm, animated: true)
+                        print(String(describing: error))
+                    }
+                }
+            } else {
+                deSetupActivityIndicator()
+                // логин или пароль неверный
+                let alarm = UIAlertController(title: "Неверный логин или пароль", message: "Проверьте информацию и попробуйте снова", preferredStyle: .alert)
+                let alarmAction = UIAlertAction(title: "Ок", style: .default)
+                alarm.addAction(alarmAction)
+                present(alarm, animated: true)
+            }} else {
+                deSetupActivityIndicator()
+                // логин или пароль не ввели
+                let alarm = UIAlertController(title: "Не заполнено обязательное поле", message: "Проверьте информацию и попробуйте снова", preferredStyle: .alert)
+                let alarmAction = UIAlertAction(title: "Ok", style: .default)
+                alarm.addAction(alarmAction)
+                present(alarm, animated: true)
+            }
+    }
+    
+    @objc private func registerNewUser(){
+        setupActivityIndicator()
+        hideKeyboard()
+        // если поля заполнены, то можно идти дальше
+        if ( (loginTextField.text != "") && (passwordTextField.text != "") ) {
+            
+            let checkerService = CheckerService()
+            checkerService.signUp(for: loginTextField.text!, and: passwordTextField.text!) { result in
+                switch result {
+                case .success(_):
+                    self.deSetupActivityIndicator()
+                    let goToProfileViewController = ProfileViewController()
+                    goToProfileViewController.modalPresentationStyle = .currentContext
+                    self.navigationController?.pushViewController(goToProfileViewController, animated: true)
+                case .failure(let error):
+                    self.deSetupActivityIndicator()
+                    let alarm = UIAlertController(title: "Ошибка при регистрации", message: error.localizedDescription, preferredStyle: .alert)
+                    let alarmAction = UIAlertAction(title: "Ok", style: .default)
+                    alarm.addAction(alarmAction)
+                    self.present(alarm, animated: true)
+                    print(String(describing: error))
+                }
+            }
+        } else  {
+            deSetupActivityIndicator()
+            // логин или пароль не ввели
+            let alarm = UIAlertController(title: "Не заполнено обязательное поле", message: "Проверьте информацию и попробуйте снова", preferredStyle: .alert)
+            let alarmAction = UIAlertAction(title: "Ok", style: .default)
+            alarm.addAction(alarmAction)
+            present(alarm, animated: true)
         }
         
     }
@@ -216,30 +280,8 @@ class LogInViewController: UIViewController {
         
     }
     
-    @objc private func makePassword(){
-        // показали AI
-        setupActivityIndicator()
-        // создали переменную, в которую вернем с потока сгенерированный пароль (брутфорс)
-        var setPasswordBetweenQueue: String = ""
-        
-        // запустили подбор пароля, его вернем
-        concurrentQuee.async {
-            setPasswordBetweenQueue = self.comparePasswords()
-            // синхронизировали потоки
-            DispatchQueue.main.async {
-                self.passwordTextField.text = setPasswordBetweenQueue
-                self.passwordTextField.isSecureTextEntry = false
-                self.deSetupActivityIndicator()
-            }
-        }
-    }
+   
     
-    private func comparePasswords() -> String {
-        // количество символов задаем
-        let randomPassword = String.createRandomPassword(for: 3)
-        let brutePassword = BruteForce().bruteForce(passwordToUnlock: randomPassword)
-        return brutePassword
-    }
     
     private func setupActivityIndicator(){
         activityIndicator.isHidden = false
