@@ -23,7 +23,7 @@ class CheckerService: CheckerServiceProtocol {
 
         Auth.auth().createUser(withEmail: email, password: password) { autDataResult, error in
             if error == nil {
-                let user = User(login: "Ivan", fullName: "Ivanov", avatarImage: UIImage(named: "Ivan")!, status: "Hello world!!")
+                let user = User(login: "Ivan", password: "idiot", fullName: "Ivanov", avatarImage: UIImage(named: "Ivan")!, status: "Hello world!!")
                 print("User creaded by checkerService ", user)
                 completion(.success(user))
             } else {
@@ -38,7 +38,7 @@ class CheckerService: CheckerServiceProtocol {
         Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
             if error == nil {
 
-                let user = User(login: "Kate", fullName: "Middleton", avatarImage: UIImage(named: "Kate")!, status: "Hello Firebase!")
+                let user = User(login: "Kate", password: "1234", fullName: "Middleton", avatarImage: UIImage(named: "Kate")!, status: "Hello Firebase!")
                 print("User checked in checkerService ", user)
                 completion(.success(user))
             } else {

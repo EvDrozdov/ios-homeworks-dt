@@ -35,7 +35,7 @@ class FeedViewController: UIViewController {
         tf.layer.borderWidth = 1
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: tf.frame.height))
-        tf.addTarget(self, action: #selector(startTimer), for: .allTouchEvents)
+        tf.addTarget(FeedViewController.self, action: #selector(startTimer), for: .allTouchEvents)
         tf.leftViewMode = .always
         return tf
     }()

@@ -18,7 +18,7 @@ final  class Checker {
 
          func check(login: String, pass: String) -> Bool {
              if (login == loginCheck) && (pass == passCheck) {
-                  user = User(login: "Evgeny", fullName: "Hipster Cat", avatarImage: UIImage(named: "cat")! , status: "Waiting for something" )
+                 user = User(login: "Evgeny", password: "Drozdov", fullName: "Hipster Cat", avatarImage: UIImage(named: "cat")! , status: "Waiting for something" )
                  return true
              } else {
                  return false
