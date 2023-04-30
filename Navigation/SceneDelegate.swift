@@ -31,6 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let userFeedController = UINavigationController(rootViewController: FeedViewController())
         let loginViewController = UINavigationController(rootViewController: LogInViewController())
         let infoViewController = UINavigationController(rootViewController: InfoViewController())
+        let favoriteItemController = UINavigationController(rootViewController: FavoriteViewController())
         let tabBarController = UITabBarController()
         
         
@@ -46,12 +47,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                                      image: UIImage(systemName: "info.circle"),
                                                      selectedImage: UIImage(systemName: "info.circle.fill"))
         
+        favoriteItemController.tabBarItem = UITabBarItem(title: "Favorite",
+                                                     image: UIImage(systemName: "bookmark"),
+                                                     selectedImage: UIImage(systemName: "bookmark.fill"))
+        
+        
         
         
         
         tabBarController.tabBar.backgroundColor = UIColor.white
         
-        tabBarController.viewControllers = [userFeedController, loginViewController, infoViewController]
+        tabBarController.viewControllers = [userFeedController, loginViewController, infoViewController, favoriteItemController]
         //        tabBarController.viewControllers?.enumerated().forEach {
         //            $1.tabBarItem.title = $0 == 0 ? "Feed" : "Profil"
         //            $1.tabBarItem.image = $0 == 0

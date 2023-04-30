@@ -48,8 +48,15 @@ class ProfileViewController: UIViewController{
         return fullscreenBackView
     }()
     
+    private var movies: [Post] = [
+        post1,
+        post2,
+        post3,
+        post4,
+        
+    ]
     
-    private var movies: [Post] = MassiveOfPosts.viewModel
+    
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -202,7 +209,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         cellTwo.likesViewsLabel.text = "views: \(movies[indexPath.row].views) likes: \(movies[indexPath.row].likes)"
         
         let post = movies[indexPath.row]
-        cellTwo.setup(with: post)
+        //cellTwo.setup(with: post)
         return indexPath.section == 0 ? cellOne : cellTwo
     }
     

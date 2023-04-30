@@ -28,8 +28,11 @@
 		F78F6D55296DED020058C9B8 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = F78F6D54296DED020058C9B8 /* iOSIntPackage */; };
 		F792BE0A292E62E700A2A43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F75F76792876238D007A8D76 /* Assets.xcassets */; };
 		F792BE14292E67B000A2A43F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75EDBC028FD5C2200D3C913 /* Post.swift */; };
+		F7943A8F29F7E3C2006C388E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7943A8E29F7E3C2006C388E /* CoreDataManager.swift */; };
+		F7943A9129F7E604006C388E /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7943A9029F7E604006C388E /* FavoriteViewController.swift */; };
 		F7A3D86728EC2790005B602F /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A3D86628EC2790005B602F /* LogInViewController.swift */; };
 		F7BF319A2906DFAF00A30A52 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BF31992906DFAF00A30A52 /* PostTableViewCell.swift */; };
+		F7D3808F29FDFF4400CB5241 /* note.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F7D3808D29FDFF4400CB5241 /* note.xcdatamodeld */; };
 		F7D42C732951FEA00034B03B /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D42C722951FEA00034B03B /* Users.swift */; };
 		F7D9980428BE37D000E0A0A7 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D9980328BE37D000E0A0A7 /* FeedViewController.swift */; };
 		F7D9980628BE37EE00E0A0A7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D9980528BE37EE00E0A0A7 /* ProfileViewController.swift */; };
@@ -62,8 +65,11 @@
 		F773CB3F28CE1212008647CA /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		F77BE55829F1673900F3DBDC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F77BE55A29F167A500F3DBDC /* CheckerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerService.swift; sourceTree = "<group>"; };
+		F7943A8E29F7E3C2006C388E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		F7943A9029F7E604006C388E /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		F7A3D86628EC2790005B602F /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F7BF31992906DFAF00A30A52 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		F7D3808E29FDFF4400CB5241 /* note.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = note.xcdatamodel; sourceTree = "<group>"; };
 		F7D42C722951FEA00034B03B /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		F7D9980328BE37D000E0A0A7 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		F7D9980528BE37EE00E0A0A7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -128,8 +134,11 @@
 				F7BF31992906DFAF00A30A52 /* PostTableViewCell.swift */,
 				F7E8B6FC2910015D00D4BFE7 /* PhotosTableViewCell.swift */,
 				F76FCFD6296F416600A96AB7 /* FeedModel.swift */,
+				F7D3808D29FDFF4400CB5241 /* note.xcdatamodeld */,
 				F74F06E329F6C3FD0031FA40 /* AuthorizationModel.swift */,
 				F7E8B6FE2910023900D4BFE7 /* PhotosViewController.swift */,
+				F7943A8E29F7E3C2006C388E /* CoreDataManager.swift */,
+				F7943A9029F7E604006C388E /* FavoriteViewController.swift */,
 				F7E8B7002910031200D4BFE7 /* PhotosCollectionViewCell.swift */,
 				F71D6D18296B35400090A888 /* Checker.swift */,
 				F71D6D1A296B35A80090A888 /* LoginInspector.swift */,
@@ -244,6 +253,7 @@
 				F7D9980A28BE39AA00E0A0A7 /* PostViewController.swift in Sources */,
 				F702F06529DEF6A700211641 /* NetworkManager.swift in Sources */,
 				F76FCFD4296F3B8600A96AB7 /* CustomButton.swift in Sources */,
+				F7943A9129F7E604006C388E /* FavoriteViewController.swift in Sources */,
 				F71D6D19296B35400090A888 /* Checker.swift in Sources */,
 				F75F76712876238C007A8D76 /* AppDelegate.swift in Sources */,
 				F7A3D86728EC2790005B602F /* LogInViewController.swift in Sources */,
@@ -260,11 +270,13 @@
 				F75F76732876238C007A8D76 /* SceneDelegate.swift in Sources */,
 				F7D42C732951FEA00034B03B /* Users.swift in Sources */,
 				F71D6D1F296B3FC90090A888 /* LoginFactory.swift in Sources */,
+				F7943A8F29F7E3C2006C388E /* CoreDataManager.swift in Sources */,
 				F7D9980828BE399700E0A0A7 /* InfoViewController.swift in Sources */,
 				F7BF319A2906DFAF00A30A52 /* PostTableViewCell.swift in Sources */,
 				F7E8B6FF2910023900D4BFE7 /* PhotosViewController.swift in Sources */,
 				F773CB4128CE1212008647CA /* ProfileHeaderView.swift in Sources */,
 				F71D6D1B296B35A80090A888 /* LoginInspector.swift in Sources */,
+				F7D3808F29FDFF4400CB5241 /* note.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +550,19 @@
 			productName = iOSIntPackage;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		F7D3808D29FDFF4400CB5241 /* note.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F7D3808E29FDFF4400CB5241 /* note.xcdatamodel */,
+			);
+			currentVersion = F7D3808E29FDFF4400CB5241 /* note.xcdatamodel */;
+			path = note.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F75F76652876238C007A8D76 /* Project object */;
 }
