@@ -2,7 +2,7 @@
 //  MapViewController.swift
 //  Navigation
 //
-//  Created by Евгений Дроздов on 02.05.2023.
+//  Created by Евгений Дроздов on 02.05.2023.   // for fixed git histories
 //
 
 import UIKit
