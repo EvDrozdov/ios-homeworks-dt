@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -31,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let userFeedController = UINavigationController(rootViewController: FeedViewController())
         let loginViewController = UINavigationController(rootViewController: LogInViewController())
         let infoViewController = UINavigationController(rootViewController: InfoViewController())
-        let mapViewController = UINavigationController(rootViewController: MapViewController())
+        let mapViewController = UINavigationController(rootViewController: ViewController())
         let tabBarController = UITabBarController()
         
         
@@ -49,7 +50,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         mapViewController.tabBarItem = UITabBarItem(title: "Map",
                                                      image: UIImage(systemName: "map"),
-                                                     selectedImage: UIImage(systemName: "info.circle.fill"))
+                                                     selectedImage: UIImage(systemName: "map.circle.fill"))
         
         
         

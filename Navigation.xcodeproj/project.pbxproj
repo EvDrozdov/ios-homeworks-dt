@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F702F06529DEF6A700211641 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702F06429DEF6A700211641 /* NetworkManager.swift */; };
 		F70AC8C02A0104FE00EF68DA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AC8BF2A0104FE00EF68DA /* MapViewController.swift */; };
-		F70AC8C22A0105A300EF68DA /* TextPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AC8C12A0105A300EF68DA /* TextPicker.swift */; };
 		F71D6D19296B35400090A888 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D18296B35400090A888 /* Checker.swift */; };
 		F71D6D1B296B35A80090A888 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1A296B35A80090A888 /* LoginInspector.swift */; };
 		F71D6D1D296B35ED0090A888 /* LoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1C296B35ED0090A888 /* LoginViewControllerDelegate.swift */; };
@@ -45,7 +44,6 @@
 /* Begin PBXFileReference section */
 		F702F06429DEF6A700211641 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F70AC8BF2A0104FE00EF68DA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		F70AC8C12A0105A300EF68DA /* TextPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPicker.swift; sourceTree = "<group>"; };
 		F71D6D18296B35400090A888 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		F71D6D1A296B35A80090A888 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		F71D6D1C296B35ED0090A888 /* LoginViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 				F773CB3F28CE1212008647CA /* ProfileHeaderView.swift */,
 				F7D9980528BE37EE00E0A0A7 /* ProfileViewController.swift */,
 				F70AC8BF2A0104FE00EF68DA /* MapViewController.swift */,
-				F70AC8C12A0105A300EF68DA /* TextPicker.swift */,
 				F71D6D1E296B3FC90090A888 /* LoginFactory.swift */,
 				F76FCFD3296F3B8600A96AB7 /* CustomButton.swift */,
 				F7A3D86628EC2790005B602F /* LogInViewController.swift */,
@@ -262,7 +259,6 @@
 				F7D9980828BE399700E0A0A7 /* InfoViewController.swift in Sources */,
 				F7BF319A2906DFAF00A30A52 /* PostTableViewCell.swift in Sources */,
 				F7E8B6FF2910023900D4BFE7 /* PhotosViewController.swift in Sources */,
-				F70AC8C22A0105A300EF68DA /* TextPicker.swift in Sources */,
 				F773CB4128CE1212008647CA /* ProfileHeaderView.swift in Sources */,
 				F71D6D1B296B35A80090A888 /* LoginInspector.swift in Sources */,
 			);
