@@ -19,7 +19,7 @@ class InfoViewController: UIViewController {
     
     private lazy var labelForAPIFieldTitle: UILabel = {
             let label = UILabel()
-            label.text = "Загружаю текст ..."
+            label.text = NSLocalizedString("infoVCButtonOne", comment: "")
             label.numberOfLines = 0
             label.textAlignment = .center
             label.textColor = .gray
@@ -29,7 +29,7 @@ class InfoViewController: UIViewController {
 
         private lazy var labelForAPIFieldOrbitalPeriod: UILabel = {
             let label = UILabel()
-            label.text = "Загружаю текст ..."
+            label.text = NSLocalizedString("infoVCButtonTwo", comment: "")
             label.numberOfLines = 0
             label.textAlignment = .center
             label.textColor = .gray
@@ -72,7 +72,7 @@ class InfoViewController: UIViewController {
             // Вызываем обращение к API, задача 1 , Домашнее задание 2
             NetworkService.requestAnotherAPI(for: "https://jsonplaceholder.typicode.com/todos/10") { titleValue in
                 DispatchQueue.main.async {
-                    self.labelForAPIFieldTitle.text = "Значение поля - \(titleValue!)"
+                    self.labelForAPIFieldTitle.text = NSLocalizedString("APIText", comment: "") + titleValue!
                     self.labelForAPIFieldTitle.textColor = .black
                 }
             }
@@ -85,26 +85,26 @@ class InfoViewController: UIViewController {
             NetworkService.requestPlanetAPI(for: "https://swapi.dev/api/planets/1") { orbitalPeriod in
                 
                 DispatchQueue.main.async {
-                    self.labelForAPIFieldOrbitalPeriod.text = "Период обращения планеты Татуин вокруг своей звезды \(orbitalPeriod!)"
+                    self.labelForAPIFieldOrbitalPeriod.text = NSLocalizedString("PeriodText", comment: "") + orbitalPeriod!
                     self.labelForAPIFieldOrbitalPeriod.textColor = .black
                 }
             }
         }
     
         
-        @objc private func didTapTermsOfUseButton() {
-            
-            let alertController = UIAlertController(title: "Правила пользования", message: "Никуда нельзя нажимать", preferredStyle: .actionSheet)
-            let firstAction = UIAlertAction(title: "Принимаю", style: .default) { _ in
-                print("Принимаю")
-            }
-            let secondAction = UIAlertAction(title: "Не принимаю", style: .destructive) { _ in
-                print("Не принимаю")
-            }
-           
-            alertController.addAction(firstAction)
-            alertController.addAction(secondAction)
-            self.present(alertController, animated: true)
-
-        }
+//        @objc private func didTapTermsOfUseButton() {
+//
+//            let alertController = UIAlertController(title: "Правила пользования", message: "Никуда нельзя нажимать", preferredStyle: .actionSheet)
+//            let firstAction = UIAlertAction(title: "Принимаю", style: .default) { _ in
+//                print("Принимаю")
+//            }
+//            let secondAction = UIAlertAction(title: "Не принимаю", style: .destructive) { _ in
+//                print("Не принимаю")
+//            }
+//
+//            alertController.addAction(firstAction)
+//            alertController.addAction(secondAction)
+//            self.present(alertController, animated: true)
+//
+//        }
 }

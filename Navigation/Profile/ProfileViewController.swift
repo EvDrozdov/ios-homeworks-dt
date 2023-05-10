@@ -80,8 +80,8 @@ class ProfileViewController: UIViewController{
         // если ее нет, то выкинем алерт
         handle = Auth.auth().addStateDidChangeListener { auth, user in
             if user == nil {
-                let alarm = UIAlertController(title: "Пользователь не авторизован", message: "Перейдите на вкладку Профиль и пройдите авторизацию", preferredStyle: .alert)
-                let alarmAction = UIAlertAction(title: "Ок", style: .default)
+                let alarm = UIAlertController(title: NSLocalizedString("profileVCAlarmTitle", comment: ""), message: NSLocalizedString("profileVCAlarmMessage", comment: ""), preferredStyle: .alert)
+                let alarmAction = UIAlertAction(title: NSLocalizedString("profileVCAlarmOK", comment: ""), style: .default)
                 alarm.addAction(alarmAction)
                 self.present(alarm, animated: true)
             }
@@ -95,7 +95,7 @@ class ProfileViewController: UIViewController{
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Profile"
+        navigationItem.title = NSLocalizedString("profileVCTittle", comment: "")
     }
     
     override func viewWillLayoutSubviews() {
@@ -210,7 +210,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         print("Section \(indexPath.section) - Row \(indexPath.row)")
         tableView.deselectRow(at: indexPath, animated:true)
         let vc = PhotosViewController()
-        vc.textTitle = "Photo Gallery"
+        vc.textTitle = NSLocalizedString("photoGallery", comment: "")
         indexPath.section == 0 ? navigationController?.pushViewController(vc, animated: true) : nil
         
     }

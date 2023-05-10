@@ -23,10 +23,10 @@ class FeedViewController: UIViewController {
         return stack
     }()
     
-    private lazy var button1 = CustomButton(title: "Button One", titleColor: .black, backgroundButtonColor: .green, clipsToBoundsOfButton: true, cornerRadius: 3, autoLayout: false)
+    private lazy var button1 = CustomButton(title: NSLocalizedString("FeedVCAButtonOne", comment: ""), titleColor: .black, backgroundButtonColor: .green, clipsToBoundsOfButton: true, cornerRadius: 3, autoLayout: false)
     
     
-    private lazy var button2 = CustomButton(title: "Button Two", titleColor: .black, backgroundButtonColor: .yellow, clipsToBoundsOfButton: true, cornerRadius: 10, autoLayout: false)
+    private lazy var button2 = CustomButton(title: NSLocalizedString("FeedVCButtonTwo", comment: ""), titleColor: .black, backgroundButtonColor: .yellow, clipsToBoundsOfButton: true, cornerRadius: 10, autoLayout: false)
     
     
     private var checkTextField: UITextField = {
@@ -42,7 +42,7 @@ class FeedViewController: UIViewController {
     
     private var checkLabel: UILabel = {
         let label = UILabel()
-        label.text = "Wait..."
+        label.text = NSLocalizedString("keyWaitFeedVC", comment: "")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -61,16 +61,16 @@ class FeedViewController: UIViewController {
     
     @objc private func alarmNote(){
         countOfUnsecTr += 1
-        let alarm = UIAlertController(title: "Время для проверки слова истекло",
-                                      message: "Попробуйте снова, но быстрее",
+        let alarm = UIAlertController(title: NSLocalizedString("FeedVCAlarmTitle", comment: ""),
+                                      message: NSLocalizedString("FeedVCAlarmMessage", comment: ""),
                                       preferredStyle: .alert)
-        let alarmAction = UIAlertAction(title: "ОК",
+        let alarmAction = UIAlertAction(title: NSLocalizedString("FeedVCAlarm", comment: ""),
                                         style: .default)
         alarm.addAction(alarmAction)
         present(alarm, animated: true)
     }
     
-   private lazy var checkButton = CustomButton(title: "Check", titleColor: .black, backgroundButtonColor: .darkGray, clipsToBoundsOfButton: true, cornerRadius: 20, autoLayout: false)
+   private lazy var checkButton = CustomButton(title: NSLocalizedString("FeedVCCheckButton", comment: ""), titleColor: .black, backgroundButtonColor: .darkGray, clipsToBoundsOfButton: true, cornerRadius: 20, autoLayout: false)
 //    {
 ////        guard let checkedSecret = self.checkTextField.text else { return }
 ////

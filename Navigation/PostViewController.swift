@@ -21,7 +21,7 @@ class PostViewController: UIViewController {
         override func viewDidLoad() {
               super.viewDidLoad()
             view.backgroundColor = .systemIndigo
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Файлы", style: .done, target: self, action: #selector(sendToInfoViewController(sender:)))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("postVCFiles", comment: ""), style: .done, target: self, action: #selector(sendToInfoViewController(sender:)))
         }
 
 }

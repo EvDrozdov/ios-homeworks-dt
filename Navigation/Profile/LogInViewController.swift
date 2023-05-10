@@ -25,7 +25,7 @@ class LogInViewController: UIViewController {
     // весь код брутфорса удален
     
     private lazy var registerNewUserButton: CustomButton = {
-        let buttom = CustomButton(title: "Регистрация", titleColor: .white, backgroundButtonColor: .blue, clipsToBoundsOfButton: true, cornerRadius: 10, autoLayout: false)
+        let buttom = CustomButton(title:NSLocalizedString("loginVCCustomButton", comment: ""), titleColor: .white, backgroundButtonColor: .blue, clipsToBoundsOfButton: true, cornerRadius: 10, autoLayout: false)
         buttom.addTargetForButton = { self.registerNewUser() }
         return buttom
         
@@ -76,7 +76,7 @@ class LogInViewController: UIViewController {
     private lazy var loginTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .systemGray6
-        textField.placeholder = "Email or Phone"
+        textField.placeholder = NSLocalizedString("logintextFeild", comment: "")
         textField.textColor = .black
         textField.keyboardType = .emailAddress
         textField.font = .systemFont(ofSize: 16, weight: .regular)
@@ -88,7 +88,7 @@ class LogInViewController: UIViewController {
     private lazy var passwordTextField: UITextField = {
         let pwTextField = UITextField()
         pwTextField.backgroundColor = .systemGray6
-        pwTextField.placeholder = "Password"
+        pwTextField.placeholder = NSLocalizedString("pwTextField", comment: "")
         pwTextField.textColor = .black
         pwTextField.font = .systemFont(ofSize: 16, weight: .regular)
         pwTextField.autocorrectionType = .no
@@ -98,7 +98,7 @@ class LogInViewController: UIViewController {
     }()
     
     private lazy var loginButton: CustomButton = {
-        let button = CustomButton (title: "Log In",
+        let button = CustomButton (title: NSLocalizedString("loginVCCustomButtonLogin", comment: ""),
                                    titleColor: .white,
                                    backgroundButtonColor: UIColor(named: "CustomColor")!,
                                    clipsToBoundsOfButton: true,
@@ -187,8 +187,8 @@ class LogInViewController: UIViewController {
                         self.deSetupActivityIndicator()
                         // Сохраним в REALM данные
                         self.saveLoginData(login: self.loginTextField.text!, password: self.passwordTextField.text!)
-                        let alarm = UIAlertController(title: "Ошибка при входе", message: error.localizedDescription, preferredStyle: .alert)
-                        let alarmAction = UIAlertAction(title: "Ok", style: .default)
+                        let alarm = UIAlertController(title: NSLocalizedString("loginError", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
+                        let alarmAction = UIAlertAction(title: NSLocalizedString("loginErrorOK", comment: ""), style: .default)
                         alarm.addAction(alarmAction)
                         self.present(alarm, animated: true)
                         print(String(describing: error))
@@ -197,15 +197,15 @@ class LogInViewController: UIViewController {
             } else {
                 deSetupActivityIndicator()
                 // логин или пароль неверный
-                let alarm = UIAlertController(title: "Неверный логин или пароль", message: "Проверьте информацию и попробуйте снова", preferredStyle: .alert)
-                let alarmAction = UIAlertAction(title: "Ок", style: .default)
+                let alarm = UIAlertController(title: NSLocalizedString("loginAlarmTitle", comment: ""), message: NSLocalizedString("AlarmMessage", comment: ""), preferredStyle: .alert)
+                let alarmAction = UIAlertAction(title: NSLocalizedString("loginErrorOK", comment: ""), style: .default)
                 alarm.addAction(alarmAction)
                 present(alarm, animated: true)
             }} else {
                 deSetupActivityIndicator()
                 // логин или пароль не ввели
-                let alarm = UIAlertController(title: "Не заполнено обязательное поле", message: "Проверьте информацию и попробуйте снова", preferredStyle: .alert)
-                let alarmAction = UIAlertAction(title: "Ok", style: .default)
+                let alarm = UIAlertController(title: NSLocalizedString("AlarmTitle", comment: ""), message: NSLocalizedString("AlarmMessage", comment: ""), preferredStyle: .alert)
+                let alarmAction = UIAlertAction(title: NSLocalizedString("loginErrorOK", comment: ""), style: .default)
                 alarm.addAction(alarmAction)
                 present(alarm, animated: true)
             }
@@ -227,8 +227,8 @@ class LogInViewController: UIViewController {
                     self.navigationController?.pushViewController(goToProfileViewController, animated: true)
                 case .failure(let error):
                     self.deSetupActivityIndicator()
-                    let alarm = UIAlertController(title: "Ошибка при регистрации", message: error.localizedDescription, preferredStyle: .alert)
-                    let alarmAction = UIAlertAction(title: "Ok", style: .default)
+                    let alarm = UIAlertController(title: NSLocalizedString("error", comment: ""), message: error.localizedDescription, preferredStyle: .alert)
+                    let alarmAction = UIAlertAction(title: NSLocalizedString("loginErrorOK", comment: ""), style: .default)
                     alarm.addAction(alarmAction)
                     self.present(alarm, animated: true)
                     print(String(describing: error))
@@ -237,8 +237,8 @@ class LogInViewController: UIViewController {
         } else  {
             deSetupActivityIndicator()
             // логин или пароль не ввели
-            let alarm = UIAlertController(title: "Не заполнено обязательное поле", message: "Проверьте информацию и попробуйте снова", preferredStyle: .alert)
-            let alarmAction = UIAlertAction(title: "Ok", style: .default)
+            let alarm = UIAlertController(title: NSLocalizedString("AlarmTitle", comment: ""), message: NSLocalizedString("AlarmMessage", comment: ""), preferredStyle: .alert)
+            let alarmAction = UIAlertAction(title: NSLocalizedString("loginErrorOK", comment: ""), style: .default)
             alarm.addAction(alarmAction)
             present(alarm, animated: true)
         }
