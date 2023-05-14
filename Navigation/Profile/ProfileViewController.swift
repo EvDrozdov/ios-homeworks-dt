@@ -64,12 +64,13 @@ class ProfileViewController: UIViewController{
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "PhotosTableCell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "defaultcell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .black)
         return tableView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .black)
         setupNavigationBar()
         setupView()
         setupGestures()

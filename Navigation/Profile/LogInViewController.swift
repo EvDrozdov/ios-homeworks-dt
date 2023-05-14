@@ -64,7 +64,7 @@ class LogInViewController: UIViewController {
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
         stackView.layer.borderWidth = 0.5
-        stackView.layer.borderColor = UIColor.lightGray.cgColor
+        stackView.layer.borderColor = (UIColor.createColor(lightMode: .white, darkMode: .black)).cgColor
         stackView.layer.cornerRadius = 10
         stackView.clipsToBounds = true
         stackView.setCustomSpacing(0.5, after: loginTextField)
@@ -75,9 +75,9 @@ class LogInViewController: UIViewController {
     
     private lazy var loginTextField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = .systemGray6
+        textField.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .black)
         textField.placeholder = NSLocalizedString("logintextFeild", comment: "")
-        textField.textColor = .black
+        textField.textColor = UIColor.createColor(lightMode: .white, darkMode: .black)
         textField.keyboardType = .emailAddress
         textField.font = .systemFont(ofSize: 16, weight: .regular)
         textField.autocorrectionType = .no
@@ -87,7 +87,7 @@ class LogInViewController: UIViewController {
     
     private lazy var passwordTextField: UITextField = {
         let pwTextField = UITextField()
-        pwTextField.backgroundColor = .systemGray6
+        pwTextField.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .black)
         pwTextField.placeholder = NSLocalizedString("pwTextField", comment: "")
         pwTextField.textColor = .black
         pwTextField.font = .systemFont(ofSize: 16, weight: .regular)
@@ -246,7 +246,7 @@ class LogInViewController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .blue)
         navigationController?.navigationBar.isHidden = true
         
         view.addSubview(scrollView)
