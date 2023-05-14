@@ -1,0 +1,55 @@
+/* 
+  Localizable.strings
+  Navigation
+
+  Created by Евгений Дроздов on 10.05.2023.
+  
+*/
+"keyFeed" = "Лента";
+"keyProfile" = "Профиль";
+"keyInfo" = "Инфо";
+
+"keyWaitFeedVC" = "Ждите...";
+"FeedVCAlarmTitle" = "Время для проверки слова истекло";
+"FeedVCAlarmMessage" = "Попробуйте снова, но быстрее";
+"FeedVCAlarm" = "Ok";
+"FeedVCCheckButton" = "Проверка";
+"FeedVCAButtonOne" = "Кнопка Один";
+"FeedVCButtonTwo" = "Кнопка Два";
+"FeedVCTitle" = "Лента";
+
+"postVCFiles" = "Файлы";
+
+"infoVCButtonOne" = "Загружаю текст...";
+"infoVCButtonTwo" = "Загружаю текст...";
+"APIText" = "Значение поля -";
+"PeriodText" = "Период обращения планеты Татуин вокруг своей звезды";
+
+"photosTVCell" = "Фото";
+
+"setTitlePHW" = "Установить статус";
+
+"profileVCTittle" = "Профиль";
+"photoGallery" = "Фото Галерея";
+"profileVCAlarmTitle" = "Пользователь не авторизован";
+"profileVCAlarmMessage" = "Перейдите на вкладку Профиль и пройдите авторизацию";
+"profileVCAlarmOK" = "Ok";
+
+
+"loginVCCustomButton" = "Регистрация";
+"logintextFeild" = "Email или Телефо";
+"pwTextField" = "Пароль";
+"loginVCCustomButtonLogin" = "Войти";
+"loginError" = "Ошибка при входе";
+"loginErrorOK" = "Ok";
+"loginAlarmTitle" = "Неверный логин или пароль";
+"loginAlarmMessage" = "Проверьте информацию и попробуйте снова";
+"loginAlarmOK" = "Ok";
+"AlarmTitle" = "Не заполнено обязательное поле";
+"AlarmMessage" = "Проверьте информацию и попробуйте снова";
+"AlarmOk" = "Ok";
+"error" = "Ошибка при регистрации";
+"ok" = "Ok";
+
+
+

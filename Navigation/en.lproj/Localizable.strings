@@ -1,0 +1,53 @@
+/* 
+  Localizable.strings
+  Navigation
+
+  Created by Евгений Дроздов on 10.05.2023.
+  
+*/
+"keyFeed" = "Feed";
+"keyProfile" = "Profile";
+"keyInfo" = "Info";
+
+"keyWaitFeedVC" = "Wait...";
+"FeedVCAlarmTitle" = "No Time";
+"FeedVCAlarmMessage" = "Try Again";
+"FeedVCAlarm" = "Ok";
+"FeedVCCheckButton" = "Check";
+"FeedVCAButtonOne" = "Button One";
+"FeedVCButtonTwo" = "Button Two";
+"FeedVCTitle" = "Feed";
+
+"postVCFiles" = "Files";
+
+"infoVCButtonOne" = "Loading text...";
+"infoVCButtonTwo" = "Loading text...";
+"APIText" = "Result is";
+"PeriodText" = "Period of Tatooin is";
+
+"photosTVCell" = "Photos";
+
+"setTitlePHW" = "Set status";
+
+"profileVCTittle" = "Profile";
+"photoGallery" = "Photo Gallery";
+"profileVCAlarmTitle" = "User is not authorized";
+"profileVCAlarmMessage" = "Go to the Profile tab and log in";
+"profileVCAlarmOK" = "Ok";
+
+
+"loginVCCustomButton" = "Registration";
+"logintextFeild" = "Email or Phone";
+"pwTextField" = "Password";
+"loginVCCustomButtonLogin" = "Log In";
+"loginError" = "Login error";
+"loginErrorOK" = "Ok";
+"loginAlarmTitle" = "Wrong password or login";
+"loginAlarmMessage" = "Try again";
+"AlarmTitle" = "Not complete field";
+"AlarmMessage" = "Check information";
+"error" = "Registration error";
+
+
+
+

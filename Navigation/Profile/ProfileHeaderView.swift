@@ -71,7 +71,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView{
         button.layer.shadowColor = UIColor(ciColor: .black).cgColor
         button.layer.shadowRadius = 4
         button.layer.shadowOpacity = 0.7
-        button.setTitle("Set status", for: .normal)
+        button.setTitle(NSLocalizedString("setTitlePHW", comment: ""), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.isUserInteractionEnabled = true
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)

@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -31,32 +32,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let userFeedController = UINavigationController(rootViewController: FeedViewController())
         let loginViewController = UINavigationController(rootViewController: LogInViewController())
         let infoViewController = UINavigationController(rootViewController: InfoViewController())
-        let mapViewController = UINavigationController(rootViewController: MapViewController())
         let tabBarController = UITabBarController()
         
         
-        userFeedController.tabBarItem = UITabBarItem(title: "Feed",
+        userFeedController.tabBarItem = UITabBarItem(title: NSLocalizedString("keyFeed", comment: ""),
                                                      image: UIImage(systemName: "list.bullet.rectangle.portrait"),
                                                      selectedImage: UIImage(systemName: "list.bullet.rectangle.portrait.fill"))
         
-        loginViewController.tabBarItem = UITabBarItem(title: "Profile",
+        loginViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("keyProfile", comment: ""),
                                                       image: UIImage(systemName: "brain.head.profile"),
                                                       selectedImage: UIImage(systemName: "brain.head.profile.fill"))
         
-        infoViewController.tabBarItem = UITabBarItem(title: "Info",
+        infoViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("keyInfo", comment: ""),
                                                      image: UIImage(systemName: "info.circle"),
                                                      selectedImage: UIImage(systemName: "info.circle.fill"))
         
-        mapViewController.tabBarItem = UITabBarItem(title: "Map",
-                                                     image: UIImage(systemName: "map"),
-                                                     selectedImage: UIImage(systemName: "info.circle.fill"))
-        
+       
         
         
         
         tabBarController.tabBar.backgroundColor = UIColor.white
         
-        tabBarController.viewControllers = [userFeedController, loginViewController, infoViewController, mapViewController]
+        tabBarController.viewControllers = [userFeedController, loginViewController, infoViewController]
         //        tabBarController.viewControllers?.enumerated().forEach {
         //            $1.tabBarItem.title = $0 == 0 ? "Feed" : "Profil"
         //            $1.tabBarItem.image = $0 == 0
