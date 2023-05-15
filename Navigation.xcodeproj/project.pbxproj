@@ -13,6 +13,7 @@
 		F71D6D1D296B35ED0090A888 /* LoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1C296B35ED0090A888 /* LoginViewControllerDelegate.swift */; };
 		F71D6D1F296B3FC90090A888 /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1E296B3FC90090A888 /* LoginFactory.swift */; };
 		F724DBB12A10D00C00391238 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F724DBB02A10D00C00391238 /* Colors.swift */; };
+		F74CEF352A120E12001FE820 /* LocalAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74CEF342A120E12001FE820 /* LocalAuthorizationService.swift */; };
 		F74F06E029F6C2EA0031FA40 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F74F06DF29F6C2EA0031FA40 /* Realm */; };
 		F74F06E229F6C2EA0031FA40 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F74F06E129F6C2EA0031FA40 /* RealmSwift */; };
 		F74F06E429F6C3FD0031FA40 /* AuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F06E329F6C3FD0031FA40 /* AuthorizationModel.swift */; };
@@ -50,6 +51,7 @@
 		F71D6D1E296B3FC90090A888 /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
 		F724DBAF2A10CFD400391238 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F724DBB02A10D00C00391238 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F74CEF342A120E12001FE820 /* LocalAuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthorizationService.swift; sourceTree = "<group>"; };
 		F74F06E329F6C3FD0031FA40 /* AuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModel.swift; sourceTree = "<group>"; };
 		F75EDBC028FD5C2200D3C913 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F75F76702876238C007A8D76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				F71D6D1E296B3FC90090A888 /* LoginFactory.swift */,
 				F76FCFD3296F3B8600A96AB7 /* CustomButton.swift */,
 				F7A3D86628EC2790005B602F /* LogInViewController.swift */,
+				F74CEF342A120E12001FE820 /* LocalAuthorizationService.swift */,
 				F76D1CF329D975620051E260 /* RandomPassword.swift */,
 				F724DBB02A10D00C00391238 /* Colors.swift */,
 				F76D1CF529D9758D0051E260 /* BruteForce.swift */,
@@ -251,6 +254,7 @@
 				F7E8B6FD2910015D00D4BFE7 /* PhotosTableViewCell.swift in Sources */,
 				F792BE14292E67B000A2A43F /* Post.swift in Sources */,
 				F76D1CF429D975620051E260 /* RandomPassword.swift in Sources */,
+				F74CEF352A120E12001FE820 /* LocalAuthorizationService.swift in Sources */,
 				F76FCFD7296F416600A96AB7 /* FeedModel.swift in Sources */,
 				F7E8B7012910031200D4BFE7 /* PhotosCollectionViewCell.swift in Sources */,
 				F7D9980428BE37D000E0A0A7 /* FeedViewController.swift in Sources */,
@@ -426,6 +430,7 @@
 				DEVELOPMENT_TEAM = 828BM9LDAK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Для авттризации через биометрию";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Для выполнения ДЗ";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Для выполнения ДЗ";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для выполнения ДЗ";
@@ -456,6 +461,7 @@
 				DEVELOPMENT_TEAM = 828BM9LDAK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Для авттризации через биометрию";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Для выполнения ДЗ";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Для выполнения ДЗ";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для выполнения ДЗ";
