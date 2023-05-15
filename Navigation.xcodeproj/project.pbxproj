@@ -41,6 +41,7 @@
 		F7E8B6FD2910015D00D4BFE7 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E8B6FC2910015D00D4BFE7 /* PhotosTableViewCell.swift */; };
 		F7E8B6FF2910023900D4BFE7 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E8B6FE2910023900D4BFE7 /* PhotosViewController.swift */; };
 		F7E8B7012910031200D4BFE7 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E8B7002910031200D4BFE7 /* PhotosCollectionViewCell.swift */; };
+		F7EF34052A12BAA300867144 /* LocalNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF34042A12BAA300867144 /* LocalNotificationsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		F7E8B6FC2910015D00D4BFE7 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		F7E8B6FE2910023900D4BFE7 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		F7E8B7002910031200D4BFE7 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		F7EF34042A12BAA300867144 /* LocalNotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				F7A3D86628EC2790005B602F /* LogInViewController.swift */,
 				F74CEF342A120E12001FE820 /* LocalAuthorizationService.swift */,
 				F76D1CF329D975620051E260 /* RandomPassword.swift */,
+				F7EF34042A12BAA300867144 /* LocalNotificationsService.swift */,
 				F724DBB02A10D00C00391238 /* Colors.swift */,
 				F76D1CF529D9758D0051E260 /* BruteForce.swift */,
 				F7BF31992906DFAF00A30A52 /* PostTableViewCell.swift */,
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7EF34052A12BAA300867144 /* LocalNotificationsService.swift in Sources */,
 				F76D1CF629D9758D0051E260 /* BruteForce.swift in Sources */,
 				F7D9980A28BE39AA00E0A0A7 /* PostViewController.swift in Sources */,
 				F702F06529DEF6A700211641 /* NetworkManager.swift in Sources */,
