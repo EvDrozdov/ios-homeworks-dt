@@ -39,7 +39,7 @@ class PhotosViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCell")
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "defaultcell")
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .black)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         return collectionView
@@ -76,7 +76,7 @@ class PhotosViewController: UIViewController {
         super.viewWillAppear(true)
         title = textTitle
         print("viewWillAppear")
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.createColor(lightMode: .white, darkMode: .black)
         navigationController?.navigationBar.isHidden = false
     }
     

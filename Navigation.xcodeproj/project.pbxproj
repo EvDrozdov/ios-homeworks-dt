@@ -12,6 +12,7 @@
 		F71D6D1B296B35A80090A888 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1A296B35A80090A888 /* LoginInspector.swift */; };
 		F71D6D1D296B35ED0090A888 /* LoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1C296B35ED0090A888 /* LoginViewControllerDelegate.swift */; };
 		F71D6D1F296B3FC90090A888 /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71D6D1E296B3FC90090A888 /* LoginFactory.swift */; };
+		F724DBB12A10D00C00391238 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F724DBB02A10D00C00391238 /* Colors.swift */; };
 		F74F06E029F6C2EA0031FA40 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F74F06DF29F6C2EA0031FA40 /* Realm */; };
 		F74F06E229F6C2EA0031FA40 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F74F06E129F6C2EA0031FA40 /* RealmSwift */; };
 		F74F06E429F6C3FD0031FA40 /* AuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74F06E329F6C3FD0031FA40 /* AuthorizationModel.swift */; };
@@ -47,6 +48,8 @@
 		F71D6D1A296B35A80090A888 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		F71D6D1C296B35ED0090A888 /* LoginViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerDelegate.swift; sourceTree = "<group>"; };
 		F71D6D1E296B3FC90090A888 /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
+		F724DBAF2A10CFD400391238 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F724DBB02A10D00C00391238 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F74F06E329F6C3FD0031FA40 /* AuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModel.swift; sourceTree = "<group>"; };
 		F75EDBC028FD5C2200D3C913 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F75F76702876238C007A8D76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +64,6 @@
 		F77BE55829F1673900F3DBDC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F77BE55A29F167A500F3DBDC /* CheckerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerService.swift; sourceTree = "<group>"; };
 		F7A3D86628EC2790005B602F /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		F7A8D6DE2A0BB393004D8198 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Navigation.app; path = "/Users/desmond/Desktop/ios-homeworks-adv/build/Debug-iphoneos/Navigation.app"; sourceTree = "<absolute>"; };
 		F7A8D6E62A0BB643004D8198 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F7A8D6E82A0BB655004D8198 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F7A8D6EB2A0BB891004D8198 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				F75F766F2876238C007A8D76 /* Navigation */,
+				F724DBAF2A10CFD400391238 /* Navigation.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +129,7 @@
 				F76FCFD3296F3B8600A96AB7 /* CustomButton.swift */,
 				F7A3D86628EC2790005B602F /* LogInViewController.swift */,
 				F76D1CF329D975620051E260 /* RandomPassword.swift */,
+				F724DBB02A10D00C00391238 /* Colors.swift */,
 				F76D1CF529D9758D0051E260 /* BruteForce.swift */,
 				F7BF31992906DFAF00A30A52 /* PostTableViewCell.swift */,
 				F7E8B6FC2910015D00D4BFE7 /* PhotosTableViewCell.swift */,
@@ -176,7 +180,7 @@
 				F74F06E129F6C2EA0031FA40 /* RealmSwift */,
 			);
 			productName = Navigation;
-			productReference = F7A8D6DE2A0BB393004D8198 /* Navigation.app */;
+			productReference = F724DBAF2A10CFD400391238 /* Navigation.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -239,6 +243,7 @@
 				F76D1CF629D9758D0051E260 /* BruteForce.swift in Sources */,
 				F7D9980A28BE39AA00E0A0A7 /* PostViewController.swift in Sources */,
 				F702F06529DEF6A700211641 /* NetworkManager.swift in Sources */,
+				F724DBB12A10D00C00391238 /* Colors.swift in Sources */,
 				F76FCFD4296F3B8600A96AB7 /* CustomButton.swift in Sources */,
 				F71D6D19296B35400090A888 /* Checker.swift in Sources */,
 				F75F76712876238C007A8D76 /* AppDelegate.swift in Sources */,
