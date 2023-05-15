@@ -9,8 +9,14 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import RealmSwift
+import LocalAuthentication
 
 class LogInViewController: UIViewController {
+    
+    let contex = LAContext()
+    var errorInBiometria: NSError?
+    var imageBiometriaName = "faceid"
+    var isBiometriaAllowed: Bool = false
     
     var authModel = AuthorizationModel()
     
@@ -30,6 +36,24 @@ class LogInViewController: UIViewController {
         return buttom
         
     }()
+    
+    private lazy var buttonForBiometricalAuth: UIButton = {
+        let button = UIButton()
+        button.setTitle("BioMetric", for: .normal)
+        button.titleLabel?.textAlignment = .center
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 10
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .blue
+        button.setImage(UIImage(systemName: imageBiometriaName), for: .normal)
+        button.imageView?.tintColor = .systemBackground
+        button.isHidden = isBiometriaAllowed
+        button.addTarget(self, action: #selector(loginByBiometrica), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)
@@ -125,6 +149,19 @@ class LogInViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(didShowKeyboard(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didHideKeyboard(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
         
+        if contex.canEvaluatePolicy(.deviceOwnerAuthentication, error: &errorInBiometria) {
+            isBiometriaAllowed = true
+            if contex.biometryType == .touchID {
+                imageBiometriaName = "touchid"
+            } else if contex.biometryType == .faceID {
+                imageBiometriaName = "faceid"
+            } else {
+                imageBiometriaName = "bandage"
+            }
+        }
+        
+        
+        
         
     }
     
@@ -146,23 +183,63 @@ class LogInViewController: UIViewController {
         })
     }
     
-    private func skipLoginVC() {
-        // тут будем отслеживать наличие авторизации. Если она есть, то сразу кидаем в экран профиля
+    
+    
+    @objc private func loginByBiometrica(){
+        
+        if isBiometriaAllowed == true {
+            contex.evaluatePolicy(.deviceOwnerAuthentication,
+                                  localizedReason: "Используйте свою биометрию для авторизации" ) { [weak self] succsess, error in
+                if let error = error { print(error.localizedDescription) }
+                
+                DispatchQueue.main.async {
+                    
+                    if succsess == true {
+                        self?.skipLoginVC()
+                    } else {
+                        return
+                    }
+                }
+            }
+        }
+    }
+    
+    private func isUserExistAndAuth() -> Bool {
+        // тут будем отслеживать наличие авторизации
         
         let realm = try! Realm()
         let authUsers = realm.objects(AuthorizationModel.self)
         
         // тут вернем все пользователей, у которых есть авторизация. По идее там всегда будет один
-        // себе для будущего. Если будет кнопка выхода, то пользователя нужно удалить из базы или разлогинить
         let isUserAuth = authUsers.contains(where: { $0.isLogin == true } )
-        if isUserAuth {
+        if isUserAuth { return true } else { return false }
+    }
+    
+    private func skipLoginVC() {
+        
+        if isUserExistAndAuth() == true {
             
-            
-            
+            let user = User(login: "Kate",
+                            password: "12345",
+                            fullName: "Kate Middletone",
+                            avatarImage: UIImage(named: "Kate.jpg")!,
+                            status: "Hello World")
             let goToProfileViewController = ProfileViewController()
             goToProfileViewController.modalPresentationStyle = .currentContext
             self.navigationController?.pushViewController(goToProfileViewController, animated: true)
+        } else
+        {
+            return
             
+        }
+    }
+    
+    // поскольку код переиспользуется, то вынесено в отдельный метод
+    private func isFieldsIsNill(email eText: String, login lText: String) -> Bool {
+        if (eText != "") && (lText != "") {
+            return true
+        } else {
+            return false
         }
     }
     
@@ -211,6 +288,10 @@ class LogInViewController: UIViewController {
             }
     }
     
+    
+    
+    
+    
     @objc private func registerNewUser(){
         setupActivityIndicator()
         hideKeyboard()
@@ -253,7 +334,9 @@ class LogInViewController: UIViewController {
         scrollView.addSubview(loginButton)
         scrollView.addSubview(textFieldStackView)
         scrollView.addSubview(vkImageView)
+        scrollView.addSubview(buttonForBiometricalAuth)
         view.addSubview(activityIndicator)
+        
         
         NSLayoutConstraint.activate([
             
@@ -261,6 +344,8 @@ class LogInViewController: UIViewController {
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            
             
             
             vkImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 120),
@@ -282,13 +367,20 @@ class LogInViewController: UIViewController {
             loginButton.heightAnchor.constraint(equalToConstant: 50),
             
             activityIndicator.leadingAnchor.constraint(equalTo: loginTextField.trailingAnchor, constant: -26),
-            activityIndicator.centerYAnchor.constraint(equalTo: loginTextField.centerYAnchor, constant: 28),
+            activityIndicator.centerYAnchor.constraint(equalTo: textFieldStackView.centerYAnchor, constant: 26),
             
+            buttonForBiometricalAuth.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            buttonForBiometricalAuth.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            buttonForBiometricalAuth.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            buttonForBiometricalAuth.heightAnchor.constraint(equalToConstant: 50),
+            buttonForBiometricalAuth.centerXAnchor.constraint(equalTo: view.centerXAnchor)
             
         ])
         
         
     }
+    
+    
     
     private func setupGesture() {
         
