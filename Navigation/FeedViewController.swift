@@ -100,7 +100,7 @@ class FeedViewController: UIViewController {
     
     private func setupSubviews() {
         view.backgroundColor = .white
-        navigationItem.title = "Feed"
+        navigationItem.title = NSLocalizedString("keyFeed", comment: "")
         
         view.addSubview(stackView)
         view.addSubview(checkLabel)

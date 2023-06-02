@@ -218,12 +218,6 @@ class LogInViewController: UIViewController {
     private func skipLoginVC() {
         
         if isUserExistAndAuth() == true {
-            
-            let user = User(login: "Kate",
-                            password: "12345",
-                            fullName: "Kate Middletone",
-                            avatarImage: UIImage(named: "Kate.jpg")!,
-                            status: "Hello World")
             let goToProfileViewController = ProfileViewController()
             goToProfileViewController.modalPresentationStyle = .currentContext
             self.navigationController?.pushViewController(goToProfileViewController, animated: true)

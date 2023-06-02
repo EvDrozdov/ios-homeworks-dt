@@ -13,10 +13,12 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    
+    let localNotificationsService = LocalNotificationsService()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // добавим локальные уведомления
+        localNotificationsService.registeForLatestUpdatesIfPossible()
         FirebaseApp.configure()
         
         
